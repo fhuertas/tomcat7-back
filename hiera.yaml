@@ -1,0 +1,23 @@
+# The yaml hierachy is: 
+# module - node
+# module - OS family
+# module - common
+# node
+# enviroment 
+# common
+# users
+
+:hierarchy:
+    - modules/%{module_name}/%{::fqdn}
+    - modules/%{module_name}/%{::osfamily}
+    - modules/%{module_name}/common
+    - hosts/%{::fqdn}
+    - environments/%{environment}
+    - common
+    - users
+
+:backends:
+    - yaml
+
+:yaml:
+    :datadir: '/etc/puppet/hieradata/'

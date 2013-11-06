@@ -1,0 +1,7 @@
+java_home   : "/usr/bin/jre" 
+tomcat_service_action : 'start' 
+
+deploy_wars        : 
+   - "basex.war"
+   - "sirius.war"
+
