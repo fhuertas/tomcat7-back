@@ -1,0 +1,36 @@
+array_token           : '::'
+
+tomcat_admin_user     : 'admin'
+tomcat_admin_pass     : '1234'
+tomcat_security       : 'no' # yes/no
+tomcat_name           : &name 'tomcat7'
+tomcat_service_name   : *name
+tomcat_user           : *name
+tomcat_group          : *name
+tomcat_version        : &version '7.0.42'
+tomcat_package        : &package
+      - "apache-tomcat-"
+      - *version
+tomcat_filename      : 
+      - *package 
+      - ".tar.gz"
+
+tomcat_service_action : "stop" # start, stop, restart, status
+
+java_home             : ''
+java_opts             : ''
+
+catalina_home         : &catalina_home
+      - "/var/lib/"
+      - *name
+catalina_base         : 
+      - "/var/lib/"
+      - *name
+catalina_webdir       : 
+      - *catalina_home
+      - "/webapps"
+
+template_file         : 'tomcat7/tomcat7-service.erb'
+
+tmp                   : "%{::osfamily}"
+

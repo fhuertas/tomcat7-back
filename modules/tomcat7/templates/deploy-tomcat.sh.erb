@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+# Debian-checkversion.sh 
+# Copyright Francisco Huertas, Center for Open Middleware, Universidad Politecnica de Madrid
+  tar xzvf <%= @in_tomcat_filename %>
+  mv <%= @in_tomcat_package %> tomcat7
+  rsync -avzh --progress tomcat7/ <%= @in_catalina_home %> && rm -rf tomcat7/
+#  mv -t tomcat7 <%= @in_catalina_home %>
+ 
+
+
