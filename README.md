@@ -29,7 +29,7 @@ To create support other OS families, must be performed the following steps:
     Puppet_base_dir
     | - hieradata # It stores the yaml files. It must be configured in hiera.yaml and can be different
     | - module # Module folder
-    |   | - files # It stores the files, the jre package must be in this directory
+    |   | - files # It stores the files, the tomcat package must be in this directory
     |   | - manifest # It stores the manifest, 
     |   | - templates # It stores the templates. The scripts are in this directory
 
