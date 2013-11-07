@@ -1,4 +1,4 @@
-java_home   : "/usr/bin/jre" 
+java_home   : "/usr/lib/jre" 
 tomcat_service_action : 'start' 
 
 deploy_wars        : 

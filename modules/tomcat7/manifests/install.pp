@@ -101,7 +101,7 @@ class tomcat7::install {
     group => "$in_tomcat_group", 
   }
 
-  file { 'bash-file':
+  file { 'tomcat7-bash-file':
     ensure  => file,  
     path    => "/${mydir}/deploy-tomcat.sh", 
     content => template("${module_name}/deploy-tomcat.sh.erb"),
@@ -114,8 +114,8 @@ class tomcat7::install {
   file { "${in_tomcat_filename}" : 
     ensure   => file, 
     path     => "${mydir}/${in_tomcat_filename}", 
-    owner    => "$in_tomcat_user",
-    group    => "$in_tomcat_group",
+    owner    => "root",
+    group    => "root",
     source   => "puppet:///modules/tomcat7/${in_tomcat_filename}",  
     require  => Tomcat7::Mkdir['create_persistent_dir'],
     notify   => Exec ["${module_name}_restarting","/${mydir}/deploy-tomcat.sh"] 
@@ -140,7 +140,7 @@ class tomcat7::install {
   
   exec {"/${mydir}/deploy-tomcat.sh" : 
     cwd         => "${mydir}", 
-    require     => File['bash-file'], 
+    require     => File['tomcat7-bash-file'], 
     refreshonly => true, 
   }
 }
